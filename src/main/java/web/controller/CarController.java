@@ -22,10 +22,8 @@ public class CarController {
     public String printCars(@RequestParam(value = "count", required = false) Integer count, Model model) {
         if (count == null || count >= 5) {
             model.addAttribute("cars", carService.getAllCars());
-            carService.getAllCars().stream().forEach(System.out::println);
         } else {
             model.addAttribute("cars", carService.getCountCar(count));
-            carService.getCountCar(count).stream().forEach(System.out::println);
         }
         return "cars";
     }
